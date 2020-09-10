@@ -34,6 +34,5 @@ Although thee three are my main technologies I wll still use other third-party l
 * **Framer Motion** - Used for animations
 * **Request** - Used to make HTTP requests from NodeJs
 * **Nodemon** - Used for hot reload i.e , restarting application when changes are made  
-* **Puppeteer** - Library used to control Google Chrome
 * **Jest** - Testing library
 
