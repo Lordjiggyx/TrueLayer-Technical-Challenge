@@ -1,3 +1,4 @@
+const { response } = require("express");
 //Express used to create server
 const express = require("express");
 
@@ -20,4 +21,8 @@ app.use("/Routes" , Users);
 app.listen(port, ()=>
 {
     console.log(`Server started on ${port}`)
+   
 })
+
+//exporting the server making it testable
+module.exports = app
