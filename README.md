@@ -35,4 +35,6 @@ Although thee three are my main technologies I wll still use other third-party l
 * **Request** - Used to make HTTP requests from NodeJs
 * **Nodemon** - Used for hot reload i.e , restarting application when changes are made  
 * **Jest** - Testing library
+* **Supertest** - Used to test HTTP Requests
+
 
