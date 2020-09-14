@@ -71,11 +71,12 @@ router.get("/pokemon/:name" , (req, res)=>
             const random = Math.floor(Math.random() * Math.floor(descriptionsLength))
 
             //I remove any line breaks
-            const finalText = englishDescriptions[random].flavor_text.replace(/(\r\n|\n|\r)/gm, "");
+            const finalText = englishDescriptions[random].flavor_text.replace(/(\r\n|\n|\r|\f)/gm, " ");
             
             //I then set the pokemon obejcts description to be that of the random object selected from the array
             pokemon.desc = finalText
 
+            //repsonse is then sent back to client
             res.send(pokemon)
             })
         }
