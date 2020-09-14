@@ -4,6 +4,7 @@ const express = require("express");
 
 //Routes 
 const Users =require("./Routes/users");
+const poke = require("./Routes/pokemon")
 
 //Initialise express
 const app = express();
@@ -16,6 +17,7 @@ const port = process.env.PORT || 5000 ;
 
 //Middleware for using the user route
 app.use("/Routes" , Users);
+app.use("/Routes" , poke)
 
 //Starting the server on localhost
 app.listen(port, ()=>
@@ -25,4 +27,4 @@ app.listen(port, ()=>
 })
 
 //exporting the server making it testable
-module.exports = app
+module.exports = app;

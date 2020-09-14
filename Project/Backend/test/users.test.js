@@ -17,7 +17,7 @@ describe('Test to see that correct URL is being reached' , ()=>
         //get the root url
         .get("/Routes")
         //assert that the status code should be 200
-        .expect(200)
+        .expect(200);
 
         
     })
@@ -43,10 +43,10 @@ describe('Test to see that body contains key sent' , ()=>
         //server as a variable
         const res = await request(app)
         //get the URL that sends a json object
-        .get("/Routes/sendJSON")
+        .get("/Routes/sendJSON");
         
         //Testing to see if the json object has a key called msg
-        expect(res.body).toHaveProperty("msg")
+        expect(res.body).toHaveProperty("msg");
 
         
     })
@@ -62,10 +62,10 @@ describe('Test to see that body contains msg key/pair value sent' , ()=>
     test('Should contain a json object with a message about truelayer' , async()=>
     {
         const res = await request(app)
-        .get("/Routes/sendJSONBody")
+        .get("/Routes/sendJSONBody");
         
         
-        expect(res.body.msg).toEqual("TrueLayer Is The Best")
+        expect(res.body.msg).toEqual("TrueLayer Is The Best");
 
         
     })

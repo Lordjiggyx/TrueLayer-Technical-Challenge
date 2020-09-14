@@ -26,7 +26,5 @@ router.get("/sendJSONBody" , (req , res)=>
 {
     res.send({msg:"TrueLayer Is The Best"})
 })
-
-
 //making this file exportble as middleware to be used by express 
 module.exports = router;
