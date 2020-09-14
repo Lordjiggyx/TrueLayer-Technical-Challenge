@@ -1,5 +1,3 @@
-//This creates a refernece to the user.js file to test it's methods
-const {user} = require("../Routes/users")
 //Request is brought in to make http calls
 const request = require('supertest')
 const app = require("../server")
@@ -38,7 +36,7 @@ describe('Test to see that body contains key sent' , ()=>
     */
 
     //Async and await are used to remove the need of constant chaining of the promis
-    test('Should contain a json object with the key msg' , async()=>
+    test('Should contain a json object with the key msg' , async done=>
     {
         //server as a variable
         const res = await request(app)
@@ -47,7 +45,7 @@ describe('Test to see that body contains key sent' , ()=>
         
         //Testing to see if the json object has a key called msg
         expect(res.body).toHaveProperty("msg");
-
+        done();
         
     })
 
@@ -59,16 +57,17 @@ describe('Test to see that body contains key sent' , ()=>
  ////Test to see that json object key has a pair value which is a message about true layer
 describe('Test to see that body contains msg key/pair value sent' , ()=>
 {
-    test('Should contain a json object with a message about truelayer' , async()=>
+    test('Should contain a json object with a message about truelayer' , async done=>
     {
         const res = await request(app)
         .get("/Routes/sendJSONBody");
         
         
         expect(res.body.msg).toEqual("TrueLayer Is The Best");
-
+        done();
         
     })
+   
 
  })
 
