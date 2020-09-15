@@ -10,7 +10,8 @@
     "dev": "nodemon start.js",
     "client": "npm start --prefix ../client",
     "both": "concurrently \"npm run dev\" \"npm run client\" ",
-    "client-intstall": "npm install --prefix client"
+    "client-intstall": "npm install --prefix client",
+    "testAll": "concurrently \"npm run test\" \"npm run --prefix ../client test\" "
   },
   "keywords": [],
   "author": "",
