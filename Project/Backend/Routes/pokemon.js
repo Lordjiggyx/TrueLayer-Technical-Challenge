@@ -89,6 +89,7 @@ router.get("/pokemon/:name" , (req, res)=>
                     pokemon.desc = translation.contents.translated
                     //repsonse is then sent back to client
                     res.send(pokemon)
+                    res.end()
                 }
                 // else
                 // {
