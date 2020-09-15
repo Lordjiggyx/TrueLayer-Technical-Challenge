@@ -71,13 +71,35 @@ router.get("/pokemon/:name" , (req, res)=>
             const random = Math.floor(Math.random() * Math.floor(descriptionsLength))
 
             //I remove any line breaks
-            const finalText = englishDescriptions[random].flavor_text.replace(/(\r\n|\n|\r|\f)/gm, " ");
+            const finalText = englishDescriptions[random].flavor_text.replace(/(\r\n|\n|\r|\f)/gm, " ").trim();
             
             //I then set the pokemon obejcts description to be that of the random object selected from the array
             pokemon.desc = finalText
+            const text = pokemon.desc
+        
 
-            //repsonse is then sent back to client
-            res.send(pokemon)
+            //Request to translate pokemon description
+            request(`https://api.funtranslations.com/translate/shakespeare.json?text=${pokemon.desc}&&api_key=dbCcJ5Jk_GUN5ieftZVpTQeF`, (error , response)=>
+            {
+                if(!error)
+                {
+                    //convert the body repsonse to a json object due to it's length
+                    translation = JSON.parse(response.body)
+                    //set the pokemon description
+                    pokemon.desc = translation.contents.translated
+                    //repsonse is then sent back to client
+                    res.send(pokemon)
+                }
+                // else
+                // {
+                //     console.log(error)
+                //     console.log(response.body)
+                //     res.send(response)
+                // }
+            })
+
+            
+            
             })
         }
     })
