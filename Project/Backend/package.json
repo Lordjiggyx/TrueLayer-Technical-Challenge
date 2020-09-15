@@ -7,7 +7,10 @@
     "test": "cross-env NODE_ENV=test jest --testTimeout=10000 --runInBand --detectOpenHandles",
     "testwatch": "jest --watchAll --testTimeout=10000",
     "start": "node start.js",
-    "dev": "nodemon start.js"
+    "dev": "nodemon start.js",
+    "client": "npm start --prefix ../client",
+    "both": "concurrently \"npm run dev\" \"npm run client\" ",
+    "client-intstall": "npm install --prefix client"
   },
   "keywords": [],
   "author": "",

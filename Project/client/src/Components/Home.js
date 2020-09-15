@@ -4,14 +4,36 @@ import "../CSS/Home.css"
 export default class Home extends Component {
 
 
-
-
     state={
         name:"",
         pokemon:{},
-        modalVisibility:false
+        modalVisibility:false,
+        EmptyError:null,
     }
-     
+    
+    handleChange = input => e =>{
+        this.setState({
+            [input]:e.target.value
+        })
+        
+    }
+
+    getPokemon = () =>
+    {
+        if(this.state.name === "")
+        {
+            this.setState({EmptyError:true} , 
+            ()=>
+            {
+                window.setTimeout(3000)
+            })
+        }
+        else
+        {
+            console.log("success")
+            this.setState({EmptyError:false})
+        }
+    }
     
     render() {
         return (
@@ -28,10 +50,16 @@ export default class Home extends Component {
                     <Label for = "Name"><b>Name:</b></Label>
                     <Input  type="text" name = "name "id="name" placeholder="Enter A Name" onChange={this.handleChange("name")}  ></Input>
 
-                <Button color="primary">Submit</Button>      
+                   
 
                 </FormGroup>
+
+                <Button color="primary" onClick={this.getPokemon}>Submit</Button>   
+
+                {this.state.EmptyError==true ? <div><Alert fade="true" color="danger">Please Enter A Name</Alert> </div>: null}
                 </div>
+
+                
 
                 
                 </Container>
