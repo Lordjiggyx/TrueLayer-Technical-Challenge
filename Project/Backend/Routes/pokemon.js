@@ -70,15 +70,15 @@ router.get("/pokemon/:name" , (req, res)=>
             //I then create a variable to select a random description
             const random = Math.floor(Math.random() * Math.floor(descriptionsLength))
 
-            //I remove any line breaks
+            //I remove any line breaks or spaces
             const finalText = englishDescriptions[random].flavor_text.replace(/(\r\n|\n|\r|\f)/gm, " ").trim();
-            
-            //I then set the pokemon obejcts description to be that of the random object selected from the array
-            pokemon.desc = finalText
-            
-        
+               
+            //I discovered that the shaksprean API could not convert words containing ' & ’ or letters with dialects on them so i replaced these using .replace
+            const normal = finalText.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[’']/g, "");
 
-            //Request to translate pokemon description
+             //I then set the pokemon obejcts description to be that of the random object selected from the array
+            pokemon.desc = normal
+               
              //Request to translate pokemon description
              request(`https://api.funtranslations.com/translate/shakespeare.json?text=${pokemon.desc}&&api_key=dbCcJ5Jk_GUN5ieftZVpTQeF`, (error , response)=>
              {
@@ -90,12 +90,6 @@ router.get("/pokemon/:name" , (req, res)=>
                      //repsonse is then sent back to client
                      res.send(pokemon)
                  
-                 // else
-                 // {
-                 //     console.log(error)
-                 //     console.log(response.body)
-                 //     res.send(response)
-                 // }
              })
          
             })
