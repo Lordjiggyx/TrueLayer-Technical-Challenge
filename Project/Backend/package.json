@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "cross-env NODE_ENV=test jest --testTimeout=10000 --runInBand --detectOpenHandles",
-    "testwatch": "jest --watchAll --testTimeout=10000",
+    "testwatch": "jest --watchAll --testTimeout=10000 --runInBand ",
     "start": "node start.js",
     "dev": "nodemon start.js",
     "client": "npm start --prefix ../client",

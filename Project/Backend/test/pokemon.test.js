@@ -9,7 +9,7 @@ describe('Test to that URL is reached' , ()=>
 {
 
     //Async and await are used to remove the need of constant chaining of the promise
-    test('Should return a status code of 200' , async done=>
+    it('Should return a status code of 200' , async done=>
     {
         //server as a variable
         const res = await request(app)
@@ -30,7 +30,7 @@ describe('Test to see that name of pokemon has been retrieved' , ()=>
 {
 
     //Async and await are used to remove the need of constant chaining of the promise
-    test('Should return the name of the pokemon' , async done=>
+    it('Should return the name of the pokemon' , async done=>
     {
         //server as a variable
         const res = await request(app)
@@ -54,7 +54,7 @@ describe('Test to get the pokemon description' , ()=>
 {
 
     //Async and await are used to remove the need of constant chaining of the promise
-    test('Should return the description  of the pokemon' , async done=>
+    it('Should return the description  of the pokemon' , async done=>
     {
         //server as a variable
         const res = await request(app)

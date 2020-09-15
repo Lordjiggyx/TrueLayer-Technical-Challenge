@@ -8,7 +8,7 @@ const app = require("../server")
 describe('Test to see that correct URL is being reached' , ()=>
 {
     //The actual test itslef 
-    test('Should return a status code of 200' ,  ()=>
+    it('Should return a status code of 200' ,  ()=>
     {
         //returns the application this is the supertest wy of tetsing express endpoints but it only allows status codes to be tested
         return request(app)
@@ -36,7 +36,7 @@ describe('Test to see that body contains key sent' , ()=>
     */
 
     //Async and await are used to remove the need of constant chaining of the promis
-    test('Should contain a json object with the key msg' , async done=>
+    it('Should contain a json object with the key msg' , async done=>
     {
         //server as a variable
         const res = await request(app)
@@ -57,7 +57,7 @@ describe('Test to see that body contains key sent' , ()=>
  ////Test to see that json object key has a pair value which is a message about true layer
 describe('Test to see that body contains msg key/pair value sent' , ()=>
 {
-    test('Should contain a json object with a message about truelayer' , async done=>
+    it('Should contain a json object with a message about truelayer' , async done=>
     {
         const res = await request(app)
         .get("/Routes/sendJSONBody");

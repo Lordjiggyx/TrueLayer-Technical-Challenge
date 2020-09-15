@@ -75,32 +75,29 @@ router.get("/pokemon/:name" , (req, res)=>
             
             //I then set the pokemon obejcts description to be that of the random object selected from the array
             pokemon.desc = finalText
-            const text = pokemon.desc
+            
         
 
             //Request to translate pokemon description
-            request(`https://api.funtranslations.com/translate/shakespeare.json?text=${pokemon.desc}&&api_key=dbCcJ5Jk_GUN5ieftZVpTQeF`, (error , response)=>
-            {
-                if(!error)
-                {
-                    //convert the body repsonse to a json object due to it's length
-                    translation = JSON.parse(response.body)
-                    //set the pokemon description
-                    pokemon.desc = translation.contents.translated
-                    //repsonse is then sent back to client
-                    res.send(pokemon)
-                    res.end()
-                }
-                // else
-                // {
-                //     console.log(error)
-                //     console.log(response.body)
-                //     res.send(response)
-                // }
-            })
-
-            
-            
+             //Request to translate pokemon description
+             request(`https://api.funtranslations.com/translate/shakespeare.json?text=${pokemon.desc}&&api_key=dbCcJ5Jk_GUN5ieftZVpTQeF`, (error , response)=>
+             {
+                 
+                     //convert the body repsonse to a json object due to it's length
+                     translation = JSON.parse(response.body)
+                     //set the pokemon description
+                     pokemon.desc = translation.contents.translated
+                     //repsonse is then sent back to client
+                     res.send(pokemon)
+                 
+                 // else
+                 // {
+                 //     console.log(error)
+                 //     console.log(response.body)
+                 //     res.send(response)
+                 // }
+             })
+         
             })
         }
     })
