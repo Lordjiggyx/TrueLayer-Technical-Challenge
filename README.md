@@ -108,7 +108,7 @@ This command runs both the backend express server and the react server
 Shortly after you have ran this commmand the webpage should open up in your default browser
 
 <p align="center">
-<img src="Project\Images\mage6.PNG" width="500">
+<img src="Project\Images\Image6.PNG" width="500">
 <p>
 
 The application has very basic functionality it follows this process
